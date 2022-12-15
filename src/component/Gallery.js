@@ -40,7 +40,7 @@ const Gallery = () => {
         <div class="gallery-container">
           <ul class="masonry-gallery">
               {/* slice(0, 7) */}
-            {galleryResults.map(post => {
+            {galleryResults.slice(0, 7).map(post => {
               return (
                 <li>
                   <img src={post.src.medium} />

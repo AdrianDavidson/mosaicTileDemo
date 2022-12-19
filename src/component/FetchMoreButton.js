@@ -60,7 +60,7 @@ const Gallery = () => {
                 {/* conditionally hide and show the info needed */}
 
                 <div
-                  className={`${isHovering == index ? "visible" : "hidden"}`}
+                  className={`${isHovering === index ? "visible" : "hidden"}`}
                 >
                   photographer: {post.photographer}
                   <br />

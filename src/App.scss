@@ -1,13 +1,26 @@
 
 // FANCYPANTS STYLES FOR LOOKS
-@import url('https://fonts.googleapis.com/css?family=Concert+One|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
-.divtext{
-	color: #333;
+.overText{
+	color: white;
+	position: absolute;
+	margin-left: 10px;
+}
+.overTextarrow{
+	color: white;
+	position: absolute;
+	margin-left: 10px;
+	bottom: 0;
+	right: 0;
+	font-size: 20px;
 }
 .visible{
 	color: white;
 	background-color: #4A52FF;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 25px;
 	// opacity: 0.5;
 	top:0;
     left:0;
@@ -17,33 +30,43 @@
 	text-align: left;
 
 }
+.title{
+	color: white;
+	// background: green;
+	font-size: 20px;
+}
+h2{
+	color:white;
+}
+.description{
+	margin-top: 10px;
+	font-size: 13px;
+}
 .hidden{
 	display: none;
 }
-.button {
+.button{
 	background-color: #4A52FF;
 	border: none;
 	color: white;
 	padding: 10px 20px;
-	text-align: center;
+	text-align: right;
 	text-decoration: none;
-	display: inline-block;
+	// display: inline-block;
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 16px;
+	// right: 0
+	float:right;
+  }
+  .button:hover{
+	  background: #c9cbff
   }
 body {
-	background: #333;
+	background: #191919;
 	// color: #ffcc00;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 }
-
-h1,
-h2 {
-	font-family: 'Concert One', cursive;
-	margin: 0 0 1rem;
-}
-
 .parent{
 	position: relative;
 }
@@ -81,7 +104,7 @@ h2 {
 // THE MEAT AND POTATOES
 .gallery-container ul {
 
-	&.masonry-gallery {
+	&.gallery {
 
 		columns: 12rem;
 		column-gap: 1rem;

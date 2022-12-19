@@ -39,14 +39,13 @@ const Gallery = () => {
     setCounter(counter + 1);
   };
 
-  console.log(counter);
 
   return (
     <>
       {isLoading && <h2>Loading...</h2>}
       <div class="wrapper">
         <div class="gallery-container">
-          <ul class="masonry-gallery">
+          <ul class="gallery">
             {/* slice(0, 7) */}
 
             {galleryResults.map((post, index) => (

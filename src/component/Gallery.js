@@ -4,7 +4,6 @@ const Gallery = () => {
   // function Gallery() {
   const [galleryResults, setGalleryResults] = useState([]);
   const [isHovering, setIsHovering] = useState(-1);
-  const [counter, setCounter] = useState(1);
 
   useEffect(() => {
     const headers = {
@@ -40,7 +39,7 @@ const Gallery = () => {
                   Description: {post.alt}
                 </div>
 
-                <img src={post.src.medium} />
+                <img alt="image" src={post.src.medium} />
               </li>
             ))}
           </ul>

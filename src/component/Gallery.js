@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FetchMoreButton from "../component/FetchMoreButton";
 const Gallery = () => {
-  // function Gallery() {
   const [galleryResults, setGalleryResults] = useState([]);
   const [isHovering, setIsHovering] = useState(-1);
 
@@ -17,13 +16,14 @@ const Gallery = () => {
   }, []);
 
   return (
-    console.log(galleryResults),
     (
       <>
         <div class="wrapper">
           <div class="gallery-container">
             <ul class="gallery">
-              <div className="title"><h3>Connect people & spaces</h3></div>
+              <div className="title">
+                <h3>Connect people & spaces</h3>
+              </div>
               {galleryResults.slice(0, 7).map((post, index) => (
                 <li
                   className="parent"
@@ -40,10 +40,7 @@ const Gallery = () => {
                   >
                     {post.photographer}
                     <br />
-                    <div className="description">
-                    {post.alt}
-                    </div>
-
+                    <div className="description">{post.alt}</div>
                   </div>
 
                   <div className="overTextarrow">

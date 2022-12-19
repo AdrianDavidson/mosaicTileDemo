@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const Gallery = () => {
-  // function Gallery() {
+const FetchMoreButton = () => {
   const [galleryResults, setGalleryResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isHovering, setIsHovering] = useState(-1);
@@ -29,7 +28,6 @@ const Gallery = () => {
       }
 
       const result = await response.json();
-      console.log(result);
     } catch (err) {
       console.log(err);
     } finally {
@@ -39,15 +37,12 @@ const Gallery = () => {
     setCounter(counter + 1);
   };
 
-
   return (
     <>
       {isLoading && <h2>Loading...</h2>}
       <div class="wrapper">
         <div class="gallery-container">
           <ul class="gallery">
-            {/* slice(0, 7) */}
-
             {galleryResults.map((post, index) => (
               <li
                 className="parent"
@@ -57,24 +52,31 @@ const Gallery = () => {
                 onMouseLeave={() => setIsHovering(-1)}
               >
                 {/* conditionally hide and show the info needed */}
+                <div className="overText">Photo ID: {post.id}</div>
 
-                <div
-                  className={`${isHovering === index ? "visible" : "hidden"}`}
-                >
-                  photographer: {post.photographer}
-                  <br />
-                  Description: {post.alt}
-                </div>
+                  <div
+                    className={`${isHovering === index ? "visible" : "hidden"}`}
+                  >
+                    {post.photographer}
+                    <br />
+                    <div className="description">{post.alt}</div>
+                  </div>
 
-                <img alt="test" src={post.src.medium} />
+                  <div className="overTextarrow">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                  </div>
+
+                  <img alt="test" src={post.src.medium} />
               </li>
             ))}
           </ul>
-          <button className="button" onClick={handleClick}>Fetch data</button>
+          <button className="button" onClick={handleClick}>
+            Fetch data
+          </button>
         </div>
       </div>
     </>
   );
 };
 
-export default Gallery;
+export default FetchMoreButton;

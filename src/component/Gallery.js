@@ -39,7 +39,7 @@ const Gallery = () => {
                   Description: {post.alt}
                 </div>
 
-                <img alt="this is coming from an API" src={post.src.medium} />
+                <img alt="test" src={post.src.medium} />
               </li>
             ))}
           </ul>

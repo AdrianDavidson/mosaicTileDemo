@@ -67,7 +67,7 @@ const Gallery = () => {
                   Description: {post.alt}
                 </div>
 
-                <img alt="image" src={post.src.medium} />
+                <img alt="test" src={post.src.medium} />
               </li>
             ))}
           </ul>

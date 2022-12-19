@@ -1,28 +1,55 @@
-import React, { useState, useEffect } from "react";
-import FetchMoreButton from "../component/FetchMoreButton";
+import React, { useState } from "react";
+
 const Gallery = () => {
   // function Gallery() {
   const [galleryResults, setGalleryResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [isHovering, setIsHovering] = useState(-1);
   const [counter, setCounter] = useState(1);
 
-  useEffect(() => {
-    const headers = {
-      Authorization: "563492ad6f91700001000001af2ce6b9e9604a0d9bb5a673cafa3764"
-    };
-    fetch("https://api.pexels.com/v1/search?query=technology", {
-      headers
-    })
-      .then(response => response.json())
-      .then(data => setGalleryResults([...data.photos]));
-  }, []);
+  const handleClick = async () => {
+    setIsLoading(true);
+
+    try {
+      const headers = {
+        Authorization:
+          "563492ad6f91700001000001af2ce6b9e9604a0d9bb5a673cafa3764"
+      };
+      const response = await fetch(
+        `https://api.pexels.com/v1/curated?page=${counter}`,
+        {
+          headers
+        }
+      )
+        .then(response => response.json())
+        .then(data => setGalleryResults([...data.photos]));
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+
+    setCounter(counter + 1);
+  };
+
+  console.log(counter);
 
   return (
     <>
+      {isLoading && <h2>Loading...</h2>}
       <div class="wrapper">
         <div class="gallery-container">
           <ul class="masonry-gallery">
-            {galleryResults.slice(0, 7).map((post, index) => (
+            {/* slice(0, 7) */}
+
+            {galleryResults.map((post, index) => (
               <li
                 className="parent"
                 key={index}
@@ -44,7 +71,7 @@ const Gallery = () => {
               </li>
             ))}
           </ul>
-          <FetchMoreButton></FetchMoreButton>
+          <button className="button" onClick={handleClick}>Fetch data</button>
         </div>
       </div>
     </>

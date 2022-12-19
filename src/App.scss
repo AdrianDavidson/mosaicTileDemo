@@ -2,9 +2,39 @@
 // FANCYPANTS STYLES FOR LOOKS
 @import url('https://fonts.googleapis.com/css?family=Concert+One|Open+Sans&display=swap');
 
+.divtext{
+	color: #333;
+}
+.visible{
+	color: white;
+	background-color: #4A52FF;
+	// opacity: 0.5;
+	top:0;
+    left:0;
+    bottom:0;
+    right:0;
+	position: absolute;
+	text-align: left;
+
+}
+.hidden{
+	display: none;
+}
+.button {
+	background-color: #4A52FF;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 16px;
+  }
 body {
 	background: #333;
-	color: #ffcc00;
+	// color: #ffcc00;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -14,25 +44,22 @@ h2 {
 	margin: 0 0 1rem;
 }
 
+.parent{
+	position: relative;
+}
 .wrapper {
 	margin: 0 auto;
 	max-width: 60rem;
 	padding: 2rem;
 	text-align: center;
 
+
 	p {
 		color: #eaf2ef;
 	}
 
 	.gallery-container {
-		background: #ffcc00;
-		border-radius: 0.5rem;
-		padding: 1rem;
-		margin: 2rem 0;
 
-		h2 {
-			color: #333;
-		}
 
 		ul {
 			list-style: none;
@@ -40,18 +67,22 @@ h2 {
 			padding: 0;
 
 			li img {
+
+
 				display: block;
 				height: auto;
 				max-width: 100%;
 			}
 		}
 	}
+
 }
 
 // THE MEAT AND POTATOES
 .gallery-container ul {
 
 	&.masonry-gallery {
+
 		columns: 12rem;
 		column-gap: 1rem;
 

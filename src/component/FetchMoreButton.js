@@ -27,7 +27,6 @@ const FetchMoreButton = () => {
         throw new Error(`Error! status: ${response.status}`);
       }
 
-      const result = await response.json();
     } catch (err) {
       console.log(err);
     } finally {
